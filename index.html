@@ -3,13 +3,62 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Responsive assignment @ Integrify</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
-            
+        <header id="header">
+            <!-- TODO: Logo and a header navbar, flexbox, space between -->
+            <img id="header__img" src="images/CSS.3.png" alt="">
+            <nav id="header__nabvar">
+                <a class="header__navbar__link" href="">page 1</a>
+                <a class="header__navbar__link" href="">page 2</a>
+                <a class="header__navbar__link" href="">page 3</a>
+                <a class="header__navbar__link" href="">page 4</a>
+            </nav>
         </header>
-        <main></main>
-        <footer></footer>
+        <main>
+            <!-- TODO: Grid with two rows, three columns (3-2-2 ratio)
+                    - When hovering, the box goes up a notch -->
+            <section class="pinned">
+                <article class="pinned__item"></article>
+                <article class="pinned__item"></article>
+                <article class="pinned__item"></article>
+                <article class="pinned__item"></article>
+                <article class="pinned__item"></article>
+            </section>
+            <!-- TODO: Another grid or flexbox column dir., a bit narrower:
+            - 3 large bozes piled  
+            - when hovering, the picture is zoomed just a notch -->
+            <section id="second-section">
+                <article class="second-section__item"></article>
+                <article class="second-section__item"></article>
+                <article class="second-section__item"></article>
+            </section>
+        <!--  TODO: Another grid,
+                Two larger boxes in upper row, three in lower row,
+                If JavaScript was used, the grid would continue with lazy loading,
+                when Load more is pressed
+                - when hovering, the picture is zoomed just a notch
+                - when using a narrow screen, i.e. smart phone, only one column -->
+            <section id="older-posts">
+                <article class="older-posts__item"></article>
+                <article class="older-posts__item"></article>
+                <article class="older-posts__item"></article>
+                <article class="older-posts__item"></article>
+                <article class="older-posts__item"></article>
+            </section>
+        <!--  Subscription form with an email input and submit button
+                - The input width grows when active -->
+        <!--  TODO: A motto etc fixed on the left side of viewport rotate -90deg -->
+            <section id="subscription">
+                <form action="mailto:juho.simojoki@integrify.io" method="post">
+                    <input type="email" name="email" id="email">
+                </form>
+            </section>
+        </main>
+        <footer>
+            <!--  TODO: Footer navi, copyright / all rights reserved and social menia links with logos -->
+        </footer>
 
     </body>
 </html>
