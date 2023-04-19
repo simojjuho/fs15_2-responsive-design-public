@@ -1,0 +1,25 @@
+@use "../mixins/animations";
+@use "../variables/fonts";
+@use "../mixins/texts";
+
+#header {
+    display: flex;
+    margin: 1em 2em;
+    justify-content:space-between;
+    align-items: center;
+}
+
+#header__heading {
+    @include texts.texts(fonts.$heading-font, 900, 36px, white)
+}
+
+
+#header__navbar {
+    display: flex;
+}
+
+.header__navbar__link {
+    padding: 0 1em;
+    text-decoration: none;
+    @include texts.texts(fonts.$main-text, 800, 16px, white)
+}
