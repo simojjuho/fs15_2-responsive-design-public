@@ -1,0 +1,84 @@
+@use "../mixins/layout";
+@use "../mixins/articles";
+
+@use "../extends/extends-articles.scss";
+@use "../extends/animations";
+
+
+
+@media screen and (min-width: 800px) {
+    #pinned {
+        margin: 0 10%;
+        display: grid;
+        gap: 0.8em;
+        @include layout.grid-large
+    }
+}
+
+@media screen and (max-width: 799px) {
+    #pinned {
+        margin: 0 5%;
+        display: grid;
+        gap: 0.5em;
+        @include layout.grid-small
+    }
+}
+
+.pinned__item {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.pinned__item__div {
+    transition: 0.5s
+}
+
+.pinned__item__div:hover {
+    @extend .article-zoom;
+}
+
+.pinned__item:nth-child(1){
+    @include articles.grid-area(item1)
+}
+
+.pinned__item:nth-child(2){
+    @include articles.grid-area(item2)
+}
+
+.pinned__item:nth-child(3){
+    @include articles.grid-area(item3)
+}
+
+.pinned__item:nth-child(4){
+    @include articles.grid-area(item4)
+}
+
+.pinned__item:nth-child(5){
+    @include articles.grid-area(item5)
+}
+
+.pinned__item__div:nth-child(1){
+    @include articles.article-box("../src/images/atlantic_nami.jpg");
+    @extend .common-articles
+}
+
+.pinned__item__div:nth-child(2) {
+    @include articles.article-box("../src/images/atlantic_nami.jpg");
+    @extend .common-articles
+}
+
+.pinned__item__div:nth-child(3) {
+    @include articles.article-box("../src/images/atlantic_nami.jpg");
+    @extend .common-articles
+}
+
+.pinned__item__div:nth-child(4) {
+    @include articles.article-box("../src/images/atlantic_nami.jpg");
+    @extend .common-articles
+}
+
+.pinned__item__div:nth-child(5) {
+    @include articles.article-box("../src/images/atlantic_nami.jpg");
+    @extend .common-articles
+}
+
