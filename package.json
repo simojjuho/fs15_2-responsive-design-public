@@ -1,0 +1,29 @@
+{
+  "name": "fs15_2-responsive-design",
+  "version": "1.0.0",
+  "description": "SCSS assignment at Integrify",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass src/styles/styles.scss:src/styles.css",
+    "sass:watch": "sass --watch src/styles/styles.scss:src/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simojjuho/fs15_2-responsive-design.git"
+  },
+  "keywords": [
+    "integrify",
+    "scss",
+    "sass",
+    "css",
+    "html",
+    "basics",
+    "full-stack"
+  ],
+  "author": "Juho Simojoki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simojjuho/fs15_2-responsive-design/issues"
+  },
+  "homepage": "https://github.com/simojjuho/fs15_2-responsive-design#readme"
+}

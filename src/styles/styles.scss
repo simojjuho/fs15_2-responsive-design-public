@@ -1,9 +1,8 @@
+@use "mixins/animations";
+@use "variables/fonts";
+
 * {
     margin: 0;
-}
-
-:root {
-    
 }
 
 body {
@@ -17,8 +16,8 @@ body {
     align-items: center;
 }
 
-#header__img {
-    max-height: 100px;
+#header__heading {
+    font-family: fonts.$heading-font;
 }
 
 #header__navbar {
@@ -29,6 +28,7 @@ body {
 .header__navbar__link {
     padding: 0 1em;
     text-decoration: none;
+    font-family: fonts.$main-text;
     color: whitesmoke;
 }
 
