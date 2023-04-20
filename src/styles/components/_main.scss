@@ -37,9 +37,6 @@
     transition: 0.5s
 }
 
-.pinned__item__div {
-}
-
 .pinned__item p {
     position: absolute;
     padding: 0 15px;
@@ -71,28 +68,60 @@
     @include articles.grid-area(item5)
 }
 
-.pinned__item__div:nth-child(1){
+.pinned__item:nth-child(1) .pinned__item__div{
     @include articles.article-box("../src/images/atlantic_nami.jpg");
     @extend .common-articles
 }
 
-.pinned__item__div:nth-child(2) {
+.pinned__item:nth-child(2) .pinned__item__div {
     @include articles.article-box("../src/images/atlantic_nami.jpg");
     @extend .common-articles
 }
 
-.pinned__item__div:nth-child(3) {
+.pinned__item:nth-child(3) .pinned__item__div{
     @include articles.article-box("../src/images/atlantic_nami.jpg");
     @extend .common-articles
 }
 
-.pinned__item__div:nth-child(4) {
+.pinned__item:nth-child(4) .pinned__item__div{
     @include articles.article-box("../src/images/atlantic_nami.jpg");
     @extend .common-articles
 }
 
-.pinned__item__div:nth-child(5) {
+.pinned__item:nth-child(5) .pinned__item__div{
     @include articles.article-box("../src/images/atlantic_nami.jpg");
     @extend .common-articles
 }
 
+#second-section {
+    margin: 3em auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 70%;
+}
+
+.second-section__item {
+    flex: 2 1 30vw;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.second-section__item p {
+    position: absolute;
+    padding: 0 15px;
+    bottom: 20px;
+    @extend .main-text
+}
+
+.second-section__item__div {
+    @include articles.article-box("../src/images/dustenbrook.jpg");   
+    @extend .common-articles;
+    transition: 0.5s;;
+}
+
+.second-section__item__div:hover {
+    @extend .article-zoom;
+}
