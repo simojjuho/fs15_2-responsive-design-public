@@ -8,6 +8,10 @@
 @use "../extends/animations";
 @use "../extends/texts-extends";
 
+/* TODO:
+    - Iteration should be done throughout the code.
+    - Also the code could be concise, DRY principle!
+     */
 
 
 @media screen and (min-width: 800px) {
@@ -47,6 +51,8 @@
 .pinned__item:hover {
     @extend .article-raise;
 }
+
+
 
 .pinned__item:nth-child(1){
     @include articles.grid-area(item1)
