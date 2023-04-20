@@ -1,0 +1,16 @@
+@use "../variables/colors";
+@use "../variables/fonts";
+
+@use "../extends/texts-extends";
+
+.wide-button {
+    display: block;
+    grid-area: button;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 50px;
+    background-color: colors.$button-color;
+    width: 100%;
+    @extend .main-text;
+}

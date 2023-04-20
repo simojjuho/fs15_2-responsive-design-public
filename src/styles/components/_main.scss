@@ -7,6 +7,7 @@
 @use "../extends/animations";
 @use "../extends/texts-extends";
 @use "../extends/layout";
+@use "../extends/buttons";
 
 /* TODO:
     - Also the code could be concise, DRY principle!
@@ -34,11 +35,12 @@
     #older-posts {
         gap: 0.8em;
         max-width: 70%;
-        grid-template-rows: 13rem 13rem;
+        grid-template-rows: 13rem 13rem 4rem;
         grid-template-columns: 18%;
         grid-template-areas: 
             "item1 item1 item1 item2 item2 item2"
-            "item3 item3 item4 item4 item5 item5";
+            "item3 item3 item4 item4 item5 item5"
+            "button button button button button button";
     }
 }
 
@@ -139,6 +141,7 @@ h3 {
 }
 
 
+
 @for $i from 1 through 5 {
     .older-posts__item:nth-child(#{$i}) {
         @include articles.grid-area(item+#{$i})
@@ -151,8 +154,14 @@ h3 {
     }
 }
 
+#load-more-btn {
+    @extend .wide-button;
+    transition: 0.5s;
+}
 
-
+#load-more-btn:hover {
+    background-color: darkorange;
+}
 
 
 
