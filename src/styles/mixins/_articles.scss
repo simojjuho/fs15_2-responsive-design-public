@@ -1,8 +1,5 @@
 @mixin article-box($url){
-    background-repeat: no-repeat;
-    background-position: center;
     background-image: url($url);
-    background-size: cover;
 }
 
 @mixin grid-area($grid-area) {

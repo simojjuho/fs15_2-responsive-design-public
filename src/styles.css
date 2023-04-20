@@ -28,41 +28,55 @@
 .common-articles, .pinned__item__div:nth-child(1), .pinned__item__div:nth-child(2), .pinned__item__div:nth-child(3), .pinned__item__div:nth-child(4), .pinned__item__div:nth-child(5) {
   width: 100%;
   height: 100%;
-  font-family: Mulish, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.article-zoom, .pinned__item__div:hover {
-  transform: scale(1.2);
+.article-raise, .pinned__item:hover {
+  transform: translate(0, -5px);
+}
+
+.main-text, .pinned__item p {
+  font-family: Mulish, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: #e7e4da;
 }
 
 @media screen and (min-width: 800px) {
   #pinned {
-    margin: 0 10%;
+    margin: 0 auto;
+    max-width: 80%;
     display: grid;
     gap: 0.8em;
     grid-template-rows: 10rem 10rem;
+    grid-template-columns: 38% 28% 28%;
     grid-template-areas: "item1 item2 item3" "item1 item4 item5";
   }
 }
 @media screen and (max-width: 799px) {
   #pinned {
-    margin: 0 5%;
+    margin: 0 auto;
+    max-width: 90%;
     display: grid;
     gap: 0.5em;
     grid-template-rows: 7em 7em 7em 7em;
+    grid-template-columns: 50% 45%;
     grid-template-areas: "item1 item2" "item1 item3" "item1 item4" "item1 item5";
   }
 }
 .pinned__item {
   overflow: hidden;
   border-radius: 10px;
+  position: relative;
+  transition: 0.5s;
 }
 
-.pinned__item__div {
-  transition: 0.5s;
+.pinned__item p {
+  position: absolute;
+  padding: 0 15px;
+  bottom: 20px;
 }
 
 .pinned__item:nth-child(1) {
@@ -86,38 +100,23 @@
 }
 
 .pinned__item__div:nth-child(1) {
-  background-repeat: no-repeat;
-  background-position: center;
   background-image: url("../src/images/atlantic_nami.jpg");
-  background-size: cover;
 }
 
 .pinned__item__div:nth-child(2) {
-  background-repeat: no-repeat;
-  background-position: center;
   background-image: url("../src/images/atlantic_nami.jpg");
-  background-size: cover;
 }
 
 .pinned__item__div:nth-child(3) {
-  background-repeat: no-repeat;
-  background-position: center;
   background-image: url("../src/images/atlantic_nami.jpg");
-  background-size: cover;
 }
 
 .pinned__item__div:nth-child(4) {
-  background-repeat: no-repeat;
-  background-position: center;
   background-image: url("../src/images/atlantic_nami.jpg");
-  background-size: cover;
 }
 
 .pinned__item__div:nth-child(5) {
-  background-repeat: no-repeat;
-  background-position: center;
   background-image: url("../src/images/atlantic_nami.jpg");
-  background-size: cover;
 }
 
 * {

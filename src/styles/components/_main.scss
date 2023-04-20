@@ -1,14 +1,19 @@
 @use "../mixins/layout";
 @use "../mixins/articles";
+@use "../mixins/texts";
+
+@use "../variables/fonts";
 
 @use "../extends/extends-articles.scss";
 @use "../extends/animations";
+@use "../extends/texts-extends";
 
 
 
 @media screen and (min-width: 800px) {
     #pinned {
-        margin: 0 10%;
+        margin: 0 auto;
+        max-width: 80%;
         display: grid;
         gap: 0.8em;
         @include layout.grid-large
@@ -17,7 +22,8 @@
 
 @media screen and (max-width: 799px) {
     #pinned {
-        margin: 0 5%;
+        margin: 0 auto;
+        max-width: 90%;
         display: grid;
         gap: 0.5em;
         @include layout.grid-small
@@ -27,14 +33,22 @@
 .pinned__item {
     overflow: hidden;
     border-radius: 10px;
-}
-
-.pinned__item__div {
+    position: relative;
     transition: 0.5s
 }
 
-.pinned__item__div:hover {
-    @extend .article-zoom;
+.pinned__item__div {
+}
+
+.pinned__item p {
+    position: absolute;
+    padding: 0 15px;
+    bottom: 20px;
+    @extend .main-text
+}
+
+.pinned__item:hover {
+    @extend .article-raise;
 }
 
 .pinned__item:nth-child(1){
