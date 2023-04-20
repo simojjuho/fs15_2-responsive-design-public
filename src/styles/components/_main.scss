@@ -1,4 +1,3 @@
-@use "../mixins/layout";
 @use "../mixins/articles";
 @use "../mixins/texts";
 
@@ -7,30 +6,39 @@
 @use "../extends/extends-articles.scss";
 @use "../extends/animations";
 @use "../extends/texts-extends";
+@use "../extends/layout";
 
 /* TODO:
-    - Iteration should be done throughout the code.
     - Also the code could be concise, DRY principle!
      */
 
+#pinned {
+    @extend .common-grid;
+}
 
 @media screen and (min-width: 800px) {
     #pinned {
-        margin: 0 auto;
-        max-width: 80%;
-        display: grid;
         gap: 0.8em;
-        @include layout.grid-large
+        max-width: 80%;
+        grid-template-rows: 10rem 10rem;
+        grid-template-columns: 38% 28% 28%;
+        grid-template-areas: 
+            "item1 item2 item3"
+            "item1 item4 item5";
     }
 }
 
 @media screen and (max-width: 799px) {
     #pinned {
-        margin: 0 auto;
-        max-width: 90%;
-        display: grid;
         gap: 0.5em;
-        @include layout.grid-small
+        max-width: 90%;
+        grid-template-rows: 7em 7em 7em 7em;
+        grid-template-columns: 50% 45%;
+        grid-template-areas: 
+            "item1 item2"
+            "item1 item3"
+            "item1 item4"
+            "item1 item5";
     }
 }
 
@@ -41,63 +49,35 @@
     transition: 0.5s
 }
 
-.pinned__item p {
+.heading-box {
     position: absolute;
     padding: 0 15px;
     bottom: 20px;
-    @extend .main-text
+}
+
+p {
+    @extend .main-text;
+}
+
+h3 {
+    @extend .h3-text;
 }
 
 .pinned__item:hover {
     @extend .article-raise;
 }
 
+@for $i from 1 through 5 {
+    .pinned__item:nth-child(#{$i}){
+        @include articles.grid-area(item+#{$i})
+    }
 
-
-.pinned__item:nth-child(1){
-    @include articles.grid-area(item1)
+    .pinned__item:nth-child(#{$i}) .pinned__item__div{
+        @include articles.article-box("../src/images/atlantic_nami.jpg");
+        @extend .common-articles
+    }
 }
 
-.pinned__item:nth-child(2){
-    @include articles.grid-area(item2)
-}
-
-.pinned__item:nth-child(3){
-    @include articles.grid-area(item3)
-}
-
-.pinned__item:nth-child(4){
-    @include articles.grid-area(item4)
-}
-
-.pinned__item:nth-child(5){
-    @include articles.grid-area(item5)
-}
-
-.pinned__item:nth-child(1) .pinned__item__div{
-    @include articles.article-box("../src/images/atlantic_nami.jpg");
-    @extend .common-articles
-}
-
-.pinned__item:nth-child(2) .pinned__item__div {
-    @include articles.article-box("../src/images/atlantic_nami.jpg");
-    @extend .common-articles
-}
-
-.pinned__item:nth-child(3) .pinned__item__div{
-    @include articles.article-box("../src/images/atlantic_nami.jpg");
-    @extend .common-articles
-}
-
-.pinned__item:nth-child(4) .pinned__item__div{
-    @include articles.article-box("../src/images/atlantic_nami.jpg");
-    @extend .common-articles
-}
-
-.pinned__item:nth-child(5) .pinned__item__div{
-    @include articles.article-box("../src/images/atlantic_nami.jpg");
-    @extend .common-articles
-}
 
 #second-section {
     margin: 3em auto 0 auto;
@@ -115,12 +95,6 @@
     border-radius: 10px;
 }
 
-.second-section__item p {
-    position: absolute;
-    padding: 0 15px;
-    bottom: 20px;
-    @extend .main-text
-}
 
 .second-section__item__div {
     @include articles.article-box("../src/images/dustenbrook.jpg");   
