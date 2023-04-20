@@ -12,8 +12,12 @@
     - Also the code could be concise, DRY principle!
      */
 
-#pinned {
+#pinned, #older-posts {
     @extend .common-grid;
+}
+
+#older-posts {
+    margin-top: 3em;
 }
 
 @media screen and (min-width: 800px) {
@@ -26,6 +30,16 @@
             "item1 item2 item3"
             "item1 item4 item5";
     }
+
+    #older-posts {
+        gap: 0.8em;
+        max-width: 70%;
+        grid-template-rows: 13rem 13rem;
+        grid-template-columns: 18%;
+        grid-template-areas: 
+            "item1 item1 item1 item2 item2 item2"
+            "item3 item3 item4 item4 item5 item5";
+    }
 }
 
 @media screen and (max-width: 799px) {
@@ -33,12 +47,29 @@
         gap: 0.5em;
         max-width: 90%;
         grid-template-rows: 7em 7em 7em 7em;
-        grid-template-columns: 50% 45%;
+        grid-template-columns: 45% 45%;
         grid-template-areas: 
             "item1 item2"
             "item1 item3"
             "item1 item4"
             "item1 item5";
+    }
+
+    #older-posts {
+        gap: 0.5em;
+        max-width: 90%;
+        grid-template-rows: 7em 7em 7em 7em 7em;
+        grid-template-columns: 80%;
+        grid-template-areas: 
+            "item1"
+            "item2"
+            "item3"
+            "item4"
+            "item5";
+    }
+
+    p {
+        display: none;
     }
 }
 
@@ -82,10 +113,9 @@ h3 {
     .second-section__item:nth-child(#{$i}) .second-section__item__background {
         @include articles.article-box("../src/images/dustenbrook#{$i}.jpg");   
         @extend .common-articles;
-        transition: 0.5s;;
+        transition: 0.5s;
     }
 }
-
 
 #second-section {
     margin: 3em auto 0 auto;
@@ -96,16 +126,33 @@ h3 {
     max-width: 70%;
 }
 
-.second-section__item {
+.second-section__item, .older-posts__item {
     flex: 2 1 30vw;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
 }
 
-
-
-
-.second-section__item__background:hover {
+.second-section__item:hover .second-section__item__background, 
+.older-posts__item:hover .older-posts__item__background {
     @extend .article-zoom;
 }
+
+
+@for $i from 1 through 5 {
+    .older-posts__item:nth-child(#{$i}) {
+        @include articles.grid-area(item+#{$i})
+    }
+
+    .older-posts__item:nth-child(#{$i}) .older-posts__item__background {
+        @include articles.article-box("../src/images/old_post#{$i}.jpg");   
+        @extend .common-articles;
+        transition: 0.5s;
+    }
+}
+
+
+
+
+
+

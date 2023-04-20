@@ -25,7 +25,7 @@
   color: white;
 }
 
-.common-articles, .pinned__item:nth-child(1) .pinned__item__background, .pinned__item:nth-child(2) .pinned__item__background, .pinned__item:nth-child(3) .pinned__item__background, .pinned__item:nth-child(4) .pinned__item__background, .pinned__item:nth-child(5) .pinned__item__background, .second-section__item:nth-child(1) .second-section__item__background, .second-section__item:nth-child(2) .second-section__item__background, .second-section__item:nth-child(3) .second-section__item__background {
+.common-articles, .pinned__item:nth-child(1) .pinned__item__background, .pinned__item:nth-child(2) .pinned__item__background, .pinned__item:nth-child(3) .pinned__item__background, .pinned__item:nth-child(4) .pinned__item__background, .pinned__item:nth-child(5) .pinned__item__background, .second-section__item:nth-child(1) .second-section__item__background, .second-section__item:nth-child(2) .second-section__item__background, .second-section__item:nth-child(3) .second-section__item__background, .older-posts__item:nth-child(1) .older-posts__item__background, .older-posts__item:nth-child(2) .older-posts__item__background, .older-posts__item:nth-child(3) .older-posts__item__background, .older-posts__item:nth-child(4) .older-posts__item__background, .older-posts__item:nth-child(5) .older-posts__item__background {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -37,7 +37,12 @@
   transform: translate(0, -5px);
 }
 
-.article-zoom, .second-section__item__background:hover {
+.article-zoom, .second-section__item:hover .second-section__item__background,
+.older-posts__item:hover .older-posts__item__background {
+  transform: scale(1.2);
+}
+
+.article-no-zoom {
   transform: scale(1.2);
 }
 
@@ -51,11 +56,11 @@
 .h3-text, h3 {
   font-family: Corben, serif;
   font-weight: 900;
-  font-size: 36px;
+  font-size: 24px;
   color: #e7e4da;
 }
 
-.common-grid, #pinned {
+.common-grid, #pinned, #older-posts {
   display: grid;
   margin: 0 auto;
 }
@@ -63,6 +68,10 @@
 /* TODO:
     - Also the code could be concise, DRY principle!
      */
+#older-posts {
+  margin-top: 3em;
+}
+
 @media screen and (min-width: 800px) {
   #pinned {
     gap: 0.8em;
@@ -71,14 +80,31 @@
     grid-template-columns: 38% 28% 28%;
     grid-template-areas: "item1 item2 item3" "item1 item4 item5";
   }
+  #older-posts {
+    gap: 0.8em;
+    max-width: 70%;
+    grid-template-rows: 13rem 13rem;
+    grid-template-columns: 18%;
+    grid-template-areas: "item1 item1 item1 item2 item2 item2" "item3 item3 item4 item4 item5 item5";
+  }
 }
 @media screen and (max-width: 799px) {
   #pinned {
     gap: 0.5em;
     max-width: 90%;
     grid-template-rows: 7em 7em 7em 7em;
-    grid-template-columns: 50% 45%;
+    grid-template-columns: 45% 45%;
     grid-template-areas: "item1 item2" "item1 item3" "item1 item4" "item1 item5";
+  }
+  #older-posts {
+    gap: 0.5em;
+    max-width: 90%;
+    grid-template-rows: 7em 7em 7em 7em 7em;
+    grid-template-columns: 80%;
+    grid-template-areas: "item1" "item2" "item3" "item4" "item5";
+  }
+  p {
+    display: none;
   }
 }
 .pinned__item {
@@ -158,11 +184,56 @@
   max-width: 70%;
 }
 
-.second-section__item {
+.second-section__item, .older-posts__item {
   flex: 2 1 30vw;
   overflow: hidden;
   position: relative;
   border-radius: 10px;
+}
+
+.older-posts__item:nth-child(1) {
+  grid-area: item1;
+}
+
+.older-posts__item:nth-child(1) .older-posts__item__background {
+  background-image: url("../src/images/old_post1.jpg");
+  transition: 0.5s;
+}
+
+.older-posts__item:nth-child(2) {
+  grid-area: item2;
+}
+
+.older-posts__item:nth-child(2) .older-posts__item__background {
+  background-image: url("../src/images/old_post2.jpg");
+  transition: 0.5s;
+}
+
+.older-posts__item:nth-child(3) {
+  grid-area: item3;
+}
+
+.older-posts__item:nth-child(3) .older-posts__item__background {
+  background-image: url("../src/images/old_post3.jpg");
+  transition: 0.5s;
+}
+
+.older-posts__item:nth-child(4) {
+  grid-area: item4;
+}
+
+.older-posts__item:nth-child(4) .older-posts__item__background {
+  background-image: url("../src/images/old_post4.jpg");
+  transition: 0.5s;
+}
+
+.older-posts__item:nth-child(5) {
+  grid-area: item5;
+}
+
+.older-posts__item:nth-child(5) .older-posts__item__background {
+  background-image: url("../src/images/old_post5.jpg");
+  transition: 0.5s;
 }
 
 * {
