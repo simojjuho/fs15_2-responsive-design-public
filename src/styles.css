@@ -25,7 +25,7 @@
   color: white;
 }
 
-.common-articles, .pinned__item:nth-child(1) .pinned__item__div, .pinned__item:nth-child(2) .pinned__item__div, .pinned__item:nth-child(3) .pinned__item__div, .pinned__item:nth-child(4) .pinned__item__div, .pinned__item:nth-child(5) .pinned__item__div, .second-section__item__div {
+.common-articles, .pinned__item:nth-child(1) .pinned__item__background, .pinned__item:nth-child(2) .pinned__item__background, .pinned__item:nth-child(3) .pinned__item__background, .pinned__item:nth-child(4) .pinned__item__background, .pinned__item:nth-child(5) .pinned__item__background, .second-section__item:nth-child(1) .second-section__item__background, .second-section__item:nth-child(2) .second-section__item__background, .second-section__item:nth-child(3) .second-section__item__background {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -37,7 +37,7 @@
   transform: translate(0, -5px);
 }
 
-.article-zoom, .second-section__item__div:hover {
+.article-zoom, .second-section__item__background:hover {
   transform: scale(1.2);
 }
 
@@ -98,40 +98,55 @@
   grid-area: item1;
 }
 
-.pinned__item:nth-child(1) .pinned__item__div {
-  background-image: url("../src/images/atlantic_nami.jpg");
+.pinned__item:nth-child(1) .pinned__item__background {
+  background-image: url("../src/images/sunrise1.jpg");
 }
 
 .pinned__item:nth-child(2) {
   grid-area: item2;
 }
 
-.pinned__item:nth-child(2) .pinned__item__div {
-  background-image: url("../src/images/atlantic_nami.jpg");
+.pinned__item:nth-child(2) .pinned__item__background {
+  background-image: url("../src/images/sunrise2.jpg");
 }
 
 .pinned__item:nth-child(3) {
   grid-area: item3;
 }
 
-.pinned__item:nth-child(3) .pinned__item__div {
-  background-image: url("../src/images/atlantic_nami.jpg");
+.pinned__item:nth-child(3) .pinned__item__background {
+  background-image: url("../src/images/sunrise3.jpg");
 }
 
 .pinned__item:nth-child(4) {
   grid-area: item4;
 }
 
-.pinned__item:nth-child(4) .pinned__item__div {
-  background-image: url("../src/images/atlantic_nami.jpg");
+.pinned__item:nth-child(4) .pinned__item__background {
+  background-image: url("../src/images/sunrise4.jpg");
 }
 
 .pinned__item:nth-child(5) {
   grid-area: item5;
 }
 
-.pinned__item:nth-child(5) .pinned__item__div {
-  background-image: url("../src/images/atlantic_nami.jpg");
+.pinned__item:nth-child(5) .pinned__item__background {
+  background-image: url("../src/images/sunrise5.jpg");
+}
+
+.second-section__item:nth-child(1) .second-section__item__background {
+  background-image: url("../src/images/dustenbrook1.jpg");
+  transition: 0.5s;
+}
+
+.second-section__item:nth-child(2) .second-section__item__background {
+  background-image: url("../src/images/dustenbrook2.jpg");
+  transition: 0.5s;
+}
+
+.second-section__item:nth-child(3) .second-section__item__background {
+  background-image: url("../src/images/dustenbrook3.jpg");
+  transition: 0.5s;
 }
 
 #second-section {
@@ -148,11 +163,6 @@
   overflow: hidden;
   position: relative;
   border-radius: 10px;
-}
-
-.second-section__item__div {
-  background-image: url("../src/images/dustenbrook.jpg");
-  transition: 0.5s;
 }
 
 * {
