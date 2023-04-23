@@ -4,24 +4,41 @@
   justify-content: space-between;
   align-items: center;
 }
-
-#header__heading {
-  font-family: Corben, serif;
-  font-weight: 900;
-  font-size: 36px;
-  color: white;
-}
-
-#header__navbar {
+#header #header__navbar {
   display: flex;
 }
-
-.header__navbar__link {
+#header .header__navbar__link {
   padding: 0 1em;
   text-decoration: none;
   font-family: Mulish, sans-serif;
   font-weight: 800;
   font-size: 16px;
+  color: white;
+}
+#header .header__navbar__link:hover::after {
+  content: "";
+  position: absolute;
+  background-color: grey;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+}
+#header .header__navbar__link:first-child:after {
+  content: "";
+  position: absolute;
+  background-color: orange;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+}
+#header i {
+  color: #ebebeb;
+}
+
+#header__heading {
+  font-family: Corben, serif;
+  font-weight: 900;
+  font-size: 36px;
   color: white;
 }
 
@@ -61,7 +78,11 @@ as I wanted to automate this as much as possible.  */
   transform: scale(1.2);
 }
 
-.main-text, p, .common-button, #load-more-btn {
+.button-hover, #subscription .subscription__box form button:hover, #load-more-btn:hover {
+  background-color: #ff8c00;
+}
+
+.main-text, p, .common-button, #subscription .subscription__box form button, #load-more-btn {
   font-family: Mulish, sans-serif;
   font-weight: 900;
   font-size: 16px;
@@ -85,12 +106,17 @@ as I wanted to automate this as much as possible.  */
   width: 100%;
 }
 
-.common-button, #load-more-btn {
+.normal-button, #subscription .subscription__box form button {
+  width: 16rem;
+}
+
+.common-button, #subscription .subscription__box form button, #load-more-btn {
   display: block;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 15px 50px;
   background-color: rgb(52, 55, 68);
+  transition: 0.5s;
 }
 
 /* TODO:
@@ -251,14 +277,6 @@ as I wanted to automate this as much as possible.  */
     display: none;
   }
 }
-#load-more-btn {
-  transition: 0.5s;
-}
-
-#load-more-btn:hover {
-  background-color: #ff8c00;
-}
-
 #subscription {
   padding: 6rem 0 6rem 0;
 }
@@ -278,8 +296,8 @@ as I wanted to automate this as much as possible.  */
 }
 #subscription .subscription__box form input {
   display: block;
+  background-color: transparent;
 }
-
 * {
   margin: 0;
 }

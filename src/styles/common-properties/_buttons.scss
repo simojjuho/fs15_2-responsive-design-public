@@ -1,5 +1,6 @@
 @use "../variables/colors";
 @use "../variables/fonts";
+@use "../variables/dimensions";
 
 @use "../common-properties/texts-common";
 
@@ -9,14 +10,15 @@
 }
 
 .normal-button {
-    
+    width: 16rem;
 }
 
 .common-button {
     display: block;
     border: none;
-    border-radius: 10px;
+    border-radius: dimensions.$border-radius;
     padding: 15px 50px;
     background-color: colors.$button-color;
+    transition: dimensions.$transition-time;
     @extend .main-text;
 }

@@ -1,3 +1,5 @@
+@use "../variables/colors";
+
 .article-raise {
     transform: translate(0, -5px);
 }
@@ -8,4 +10,8 @@
 
 .article-no-zoom {
     transform: scale(1.2);
+}
+
+.button-hover {
+    background-color: colors.$button-hover-color;
 }

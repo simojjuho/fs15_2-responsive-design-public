@@ -1,12 +1,45 @@
 @use "../mixins/animations";
-@use "../variables/fonts";
 @use "../mixins/texts";
+
+@use "../variables/fonts";
+@use "../variables/colors";
 
 #header {
     display: flex;
     margin: 2em 10vw;;
     justify-content:space-between;
     align-items: center;
+
+    #header__navbar {
+        display: flex;
+    }
+
+    .header__navbar__link {
+        padding: 0 1em;
+        text-decoration: none;
+        @include texts.texts(fonts.$main-text, 800, 16px, white);
+
+        &:hover::after {
+            content: "";
+            position: absolute;
+            background-color: grey;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+        }
+        &:first-child:after {
+            content: "";
+            position: absolute;
+            background-color: orange;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+        }
+    }
+
+    i {
+        color: colors.$text-color;
+    }
 }
 
 #header__heading {
@@ -14,12 +47,5 @@
 }
 
 
-#header__navbar {
-    display: flex;
-}
 
-.header__navbar__link {
-    padding: 0 1em;
-    text-decoration: none;
-    @include texts.texts(fonts.$main-text, 800, 16px, white)
-}
+
