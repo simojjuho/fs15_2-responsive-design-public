@@ -1,31 +1,54 @@
 @use "../variables/colors";
 @use "../variables/fonts";
+@use "../variables/dimensions";
 
 @use "../common-properties/buttons";
 @use "../common-properties/animations";
+@use "../common-properties/texts-common";
 
 
 #subscription {
     padding: 6rem 0 6rem 0;
 
     .subscription__box {
-        display: flex;
         gap: 2rem;
         margin: 0 auto 0 auto;
-        max-width: fit-content;
-        align-items: center;
-        flex-direction: column;
-        align-content:center;
-
+        width: fit-content;
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 1rem;
+            width: fit-content;
+
+            h2 {
+                @extend .h2-text;
+            }
+
+            p {
+                @extend .main-text;
+                max-height: 20px;
+                white-space: nowrap;
+                max-width: fit-content;
+                overflow: hidden;
+                border-right: 1px solid white;
+                animation: typing 3s steps(30) alternate infinite, border 1s infinite;
+            }
 
             input {
                 display: block;
                 background-color: transparent;
-                
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                width: 16rem;
+                transition: dimensions.$transition-time;
+                @extend .main-text;
+
+                &:focus {
+                    outline: 0px;
+                    width: 32rem;
+                }
             }
 
             button {
@@ -37,5 +60,67 @@
                 }
             }
         }
+    }
+}
+
+#links-copyright {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 2rem;
+    padding: 0 2rem;
+    justify-content: space-between;
+
+    .links-copyright__nabvar__link {
+        @extend .main-text;
+        text-decoration: none;
+        margin-right: 2em;
+
+        &:hover::after {
+            content: "";
+            position: absolute;
+            background-color: grey;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+        }
+        &:first-child:after {
+            content: "";
+            position: absolute;
+            background-color: orange;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+        }
+    }
+
+    #some-links {
+        a {
+            margin-left: 2em;
+        }
+    }
+
+    span {
+        @extend .main-text;
+        color: lightslategray;
+    }
+}
+
+@keyframes typing {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes border {
+    0% {
+        border-right: none;
+    }
+
+    100% {
+        border-right: 1px solid white;
     }
 }

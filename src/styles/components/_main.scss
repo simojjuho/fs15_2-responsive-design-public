@@ -3,6 +3,7 @@
 
 @use "../variables/fonts";
 @use "../variables/colors";
+@use "../variables/dimensions";
 
 @use "../common-properties/articles-common.scss";
 @use "../common-properties/animations";
@@ -10,9 +11,13 @@
 @use "../common-properties/layout";
 @use "../common-properties/buttons";
 
-/* TODO:
-    - Also the code could be concise, DRY principle!
-     */
+
+#motto {
+    position: fixed;
+    @extend .main-text;
+    margin: auto, 0;
+    transform: rotate(-90deg) translate(-160%, -5em); 
+}
 
 #pinned {
     @extend .common-grid;
@@ -38,24 +43,32 @@
 
         .pinned__item__tag {
             position: absolute;
-            margin: 2em;
-            font-family: fonts.$main-text;
-            color: colors.$text-color;
-            font-weight: bold;
-            border: white 1px solid;
+            top: 1.5rem;
+            left: 2rem;
+            display: inline-block;
+            background-color: colors.$text-color;
+            font-weight: bolder;
+            font-size: 9px;
+            text-decoration: none;
+            color: colors.$background;
+            line-height: 1;
             width: fit-content;
-            padding: 4px;
-            border-radius: 15px;
+            padding: 4px 7px;
+            border-radius: dimensions.$border-radius;
+            text-transform: uppercase;
         }
 
         .heading-box {
-            //TODO: Change into flex-box for more flexibility
-            position: absolute;
-            bottom: 2em;
-            left: 2em;
-        
-            i {
-                visibility: hidden;
+            h3 {
+                @extend .h3-text;
+            }
+
+            p {
+                @extend .main-text;
+            }
+
+            &:hover {
+                cursor: pointer;
             }
         }
     }
@@ -69,6 +82,7 @@
     gap: 2em;
     max-width: 70%;
 
+
     .second-section__item {
         flex: 2 1 30vw;
         @extend .common-article;
@@ -81,9 +95,39 @@
             }
         }
 
-        &:hover .second-section__item__background {
-            @extend .article-zoom;
+        &:hover { 
+            .second-section__item__background {
+                @extend .article-zoom;
+            }
+            .heading-box {
+                span {
+                    visibility: visible;
+                }
+            }
         }
+
+        .heading-box {
+            .tag {
+                @extend .tags-common;
+            }
+
+            h3 {
+                @extend .h3-text;
+
+                span {
+                    visibility: hidden;
+                }
+            }
+
+            p {
+                @extend .main-text;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
     }
 }
 
@@ -95,8 +139,15 @@
         flex: 2 1 30vw;
         @extend .common-article;
 
-        &:hover .older-posts__item__background {
-            @extend .article-zoom;
+        &:hover { 
+            .older-posts__item__background {
+                @extend .article-zoom;
+            }
+            .heading-box {
+                span {
+                    visibility: visible;
+                }
+            }
         }
 
         @for $i from 1 through 5 {
@@ -110,6 +161,27 @@
                 transition: 0.5s;
             }
         }
+        .heading-box {
+            .tag {
+                @extend .tags-common;
+            }
+
+            h3 {
+                @extend .h3-text;
+
+                span {
+                    visibility: hidden;
+                }
+            }
+
+            p {
+                @extend .main-text;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -117,7 +189,7 @@
     #pinned {
         gap: 0.8em;
         max-width: 85%;
-        grid-template-rows: 10rem 10rem;
+        grid-template-rows: 11rem 11rem;
         grid-template-columns: 1.2fr 1fr 1fr;
         grid-template-areas: 
             "item1 item2 item3"
@@ -167,14 +239,6 @@
     }
 }
 
-
-p {
-    @extend .main-text;
-}
-
-h3 {
-    @extend .h3-text;
-}
 
 #load-more-btn {
     @extend .wide-button;

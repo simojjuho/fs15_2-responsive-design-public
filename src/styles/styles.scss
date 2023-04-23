@@ -1,3 +1,5 @@
+@use "variables/colors";
+
 @use "components/header";
 @use "components/main";
 @use "components/footer";
@@ -7,7 +9,7 @@
 }
 
 body {
-    background-color: rgb(35, 40, 59);
+    background-color: colors.$background;
 }
 
 

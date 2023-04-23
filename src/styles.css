@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
 }
+#header img {
+  max-height: 3rem;
+}
 #header #header__navbar {
   display: flex;
 }
@@ -66,6 +69,25 @@ as I wanted to automate this as much as possible.  */
   left: 2em;
 }
 
+.tags-common, #second-section .second-section__item .heading-box .tag, #older-posts .older-posts__item .heading-box .tag {
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 9px;
+  text-decoration: none;
+  color: #ebebeb;
+  line-height: 1;
+  width: fit-content;
+  padding: 4px 7px;
+  border: 1.6px solid #ebebeb;
+  border-radius: 15px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+.tags-common:hover, #second-section .second-section__item .heading-box .tag:hover, #older-posts .older-posts__item .heading-box .tag:hover {
+  background-color: #ebebeb;
+  color: #23283b;
+}
+
 .article-raise, #pinned .pinned__item:hover {
   transform: translate(0, -5px);
 }
@@ -80,20 +102,28 @@ as I wanted to automate this as much as possible.  */
 
 .button-hover, #subscription .subscription__box form button:hover, #load-more-btn:hover {
   background-color: #ff8c00;
+  cursor: pointer;
 }
 
-.main-text, p, .common-button, #subscription .subscription__box form button, #load-more-btn {
+.main-text, #subscription .subscription__box form p, #subscription .subscription__box form input, #links-copyright .links-copyright__nabvar__link, #links-copyright span, #motto, #pinned .pinned__item .heading-box p, #second-section .second-section__item .heading-box p, #older-posts .older-posts__item .heading-box p, .common-button, #subscription .subscription__box form button, #load-more-btn {
   font-family: Mulish, sans-serif;
   font-weight: 900;
-  font-size: 16px;
+  font-size: 1em;
   color: #ebebeb;
 }
 
-.h3-text, h3 {
+.h3-text, #pinned .pinned__item .heading-box h3, #second-section .second-section__item .heading-box h3, #older-posts .older-posts__item .heading-box h3 {
   font-family: Corben, serif;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 1.2em;
   color: #ebebeb;
+}
+
+.h2-text, #subscription .subscription__box form h2 {
+  font-family: Corben, serif;
+  font-weight: 900;
+  color: #ebebeb;
+  font-size: 2em;
 }
 
 .common-grid, #pinned, #older-posts {
@@ -119,9 +149,12 @@ as I wanted to automate this as much as possible.  */
   transition: 0.5s;
 }
 
-/* TODO:
-    - Also the code could be concise, DRY principle!
-     */
+#motto {
+  position: fixed;
+  margin: auto, 0;
+  transform: rotate(-90deg) translate(-160%, -5em);
+}
+
 #pinned .pinned__item:nth-child(1) {
   grid-area: item1;
 }
@@ -159,22 +192,22 @@ as I wanted to automate this as much as possible.  */
 }
 #pinned .pinned__item .pinned__item__tag {
   position: absolute;
-  margin: 2em;
-  font-family: Mulish, sans-serif;
-  color: #ebebeb;
-  font-weight: bold;
-  border: white 1px solid;
+  top: 1.5rem;
+  left: 2rem;
+  display: inline-block;
+  background-color: #ebebeb;
+  font-weight: bolder;
+  font-size: 9px;
+  text-decoration: none;
+  color: #23283b;
+  line-height: 1;
   width: fit-content;
-  padding: 4px;
+  padding: 4px 7px;
   border-radius: 15px;
+  text-transform: uppercase;
 }
-#pinned .pinned__item .heading-box {
-  position: absolute;
-  bottom: 2em;
-  left: 2em;
-}
-#pinned .pinned__item .heading-box i {
-  visibility: hidden;
+#pinned .pinned__item .heading-box:hover {
+  cursor: pointer;
 }
 
 #second-section {
@@ -200,11 +233,24 @@ as I wanted to automate this as much as possible.  */
   background-image: url("../src/images/dustenbrook3.jpg"), linear-gradient(#f800c2, #f800f3);
   transition: 0.5s;
 }
+#second-section .second-section__item:hover .heading-box span {
+  visibility: visible;
+}
+#second-section .second-section__item .heading-box h3 span {
+  visibility: hidden;
+}
+#second-section .second-section__item .heading-box:hover {
+  cursor: pointer;
+}
+
 #older-posts {
   margin-top: 3em;
 }
 #older-posts .older-posts__item {
   flex: 2 1 30vw;
+}
+#older-posts .older-posts__item:hover .heading-box span {
+  visibility: visible;
 }
 #older-posts .older-posts__item:nth-child(1) {
   grid-area: item1;
@@ -241,12 +287,18 @@ as I wanted to automate this as much as possible.  */
   background-image: url("../src/images/old_post5.jpg"), linear-gradient(#25531a, #0e5008);
   transition: 0.5s;
 }
+#older-posts .older-posts__item .heading-box h3 span {
+  visibility: hidden;
+}
+#older-posts .older-posts__item .heading-box:hover {
+  cursor: pointer;
+}
 
 @media screen and (min-width: 800px) {
   #pinned {
     gap: 0.8em;
     max-width: 85%;
-    grid-template-rows: 10rem 10rem;
+    grid-template-rows: 11rem 11rem;
     grid-template-columns: 1.2fr 1fr 1fr;
     grid-template-areas: "item1 item2 item3" "item1 item4 item5";
   }
@@ -281,29 +333,94 @@ as I wanted to automate this as much as possible.  */
   padding: 6rem 0 6rem 0;
 }
 #subscription .subscription__box {
-  display: flex;
   gap: 2rem;
   margin: 0 auto 0 auto;
-  max-width: fit-content;
-  align-items: center;
-  flex-direction: column;
-  align-content: center;
+  width: fit-content;
 }
 #subscription .subscription__box form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
+  width: fit-content;
+}
+#subscription .subscription__box form p {
+  max-height: 20px;
+  white-space: nowrap;
+  max-width: fit-content;
+  overflow: hidden;
+  border-right: 1px solid white;
+  animation: typing 3s steps(30) alternate infinite, border 1s infinite;
 }
 #subscription .subscription__box form input {
   display: block;
   background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 16rem;
+  transition: 0.5s;
+}
+#subscription .subscription__box form input:focus {
+  outline: 0px;
+  width: 32rem;
+}
+#links-copyright {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 2rem;
+  padding: 0 2rem;
+  justify-content: space-between;
+}
+#links-copyright .links-copyright__nabvar__link {
+  text-decoration: none;
+  margin-right: 2em;
+}
+#links-copyright .links-copyright__nabvar__link:hover::after {
+  content: "";
+  position: absolute;
+  background-color: grey;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+}
+#links-copyright .links-copyright__nabvar__link:first-child:after {
+  content: "";
+  position: absolute;
+  background-color: orange;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+}
+#links-copyright #some-links a {
+  margin-left: 2em;
+}
+#links-copyright span {
+  color: lightslategray;
+}
+
+@keyframes typing {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes border {
+  0% {
+    border-right: none;
+  }
+  100% {
+    border-right: 1px solid white;
+  }
 }
 * {
   margin: 0;
 }
 
 body {
-  background-color: rgb(35, 40, 59);
+  background-color: #23283b;
 }
 
 /*# sourceMappingURL=styles.css.map */
