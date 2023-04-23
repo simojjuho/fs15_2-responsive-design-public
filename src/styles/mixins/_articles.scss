@@ -1,5 +1,9 @@
-@mixin article-box($url){
-    background-image: url($url);
+@use "../variables/colors";
+
+/* I must admit, I'm a bit proud of this code, even though the colors are a bit funny. Actually nothing very impressive, just accessing a value in a nested array,
+as I wanted to automate this as much as possible.  */
+@mixin article-box($url, $nbr){
+    background-image: url($url), linear-gradient(nth(nth(colors.$overlay-colors, $nbr),1), nth(nth(colors.$overlay-colors, $nbr),2));
 }
 
 @mixin grid-area($grid-area) {

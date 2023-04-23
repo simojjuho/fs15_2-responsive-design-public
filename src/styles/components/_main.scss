@@ -2,31 +2,123 @@
 @use "../mixins/texts";
 
 @use "../variables/fonts";
+@use "../variables/colors";
 
-@use "../extends/extends-articles.scss";
-@use "../extends/animations";
-@use "../extends/texts-extends";
-@use "../extends/layout";
-@use "../extends/buttons";
+@use "../common-properties/articles-common.scss";
+@use "../common-properties/animations";
+@use "../common-properties/texts-common";
+@use "../common-properties/layout";
+@use "../common-properties/buttons";
 
 /* TODO:
     - Also the code could be concise, DRY principle!
      */
 
-#pinned, #older-posts {
+#pinned {
     @extend .common-grid;
+
+    .pinned__item {
+        @extend .common-article;
+
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}){
+                @include articles.grid-area(item+#{$i});
+            }
+        
+            &:nth-child(#{$i}) .pinned__item__background{
+                @include articles.article-box("../src/images/sunrise#{$i}.jpg", $i);
+                @extend .common-background;
+                position: absolute;
+            }
+        }
+
+        &:hover {
+            @extend .article-raise;
+        }
+
+        .pinned__item__tag {
+            position: absolute;
+            margin: 2em;
+            font-family: fonts.$main-text;
+            color: colors.$text-color;
+            font-weight: bold;
+            border: white 1px solid;
+            width: fit-content;
+            padding: 4px;
+            border-radius: 15px;
+        }
+
+        .heading-box {
+            //TODO: Change into flex-box for more flexibility
+            position: absolute;
+            bottom: 2em;
+            left: 2em;
+        
+            i {
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+#second-section {
+    margin: 3em auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 70%;
+
+    .second-section__item {
+        flex: 2 1 30vw;
+        @extend .common-article;
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) .second-section__item__background {
+                @include articles.article-box("../src/images/dustenbrook#{$i}.jpg", $i);   
+                @extend .common-background;
+                transition: 0.5s;
+            }
+        }
+
+        &:hover .second-section__item__background {
+            @extend .article-zoom;
+        }
+    }
 }
 
 #older-posts {
+    @extend .common-grid;
     margin-top: 3em;
+
+    .older-posts__item {
+        flex: 2 1 30vw;
+        @extend .common-article;
+
+        &:hover .older-posts__item__background {
+            @extend .article-zoom;
+        }
+
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                @include articles.grid-area(item+#{$i})
+            }
+        
+            &:nth-child(#{$i}) .older-posts__item__background {
+                @include articles.article-box("../src/images/old_post#{$i}.jpg", $i);   
+                @extend .common-background;
+                transition: 0.5s;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 800px) {
     #pinned {
         gap: 0.8em;
-        max-width: 80%;
+        max-width: 85%;
         grid-template-rows: 10rem 10rem;
-        grid-template-columns: 38% 28% 28%;
+        grid-template-columns: 1.2fr 1fr 1fr;
         grid-template-areas: 
             "item1 item2 item3"
             "item1 item4 item5";
@@ -75,18 +167,6 @@
     }
 }
 
-.pinned__item {
-    overflow: hidden;
-    border-radius: 10px;
-    position: relative;
-    transition: 0.5s
-}
-
-.heading-box {
-    position: absolute;
-    padding: 0 15px;
-    bottom: 20px;
-}
 
 p {
     @extend .main-text;
@@ -96,72 +176,36 @@ h3 {
     @extend .h3-text;
 }
 
-.pinned__item:hover {
-    @extend .article-raise;
-}
-
-@for $i from 1 through 5 {
-    .pinned__item:nth-child(#{$i}){
-        @include articles.grid-area(item+#{$i})
-    }
-
-    .pinned__item:nth-child(#{$i}) .pinned__item__background{
-        @include articles.article-box("../src/images/sunrise#{$i}.jpg");
-        @extend .common-articles;
-    }
-}
-
-@for $i from 1 through 3 {
-    .second-section__item:nth-child(#{$i}) .second-section__item__background {
-        @include articles.article-box("../src/images/dustenbrook#{$i}.jpg");   
-        @extend .common-articles;
-        transition: 0.5s;
-    }
-}
-
-#second-section {
-    margin: 3em auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 2em;
-    max-width: 70%;
-}
-
-.second-section__item, .older-posts__item {
-    flex: 2 1 30vw;
-    overflow: hidden;
-    position: relative;
-    border-radius: 10px;
-}
-
-.second-section__item:hover .second-section__item__background, 
-.older-posts__item:hover .older-posts__item__background {
-    @extend .article-zoom;
-}
-
-
-
-@for $i from 1 through 5 {
-    .older-posts__item:nth-child(#{$i}) {
-        @include articles.grid-area(item+#{$i})
-    }
-
-    .older-posts__item:nth-child(#{$i}) .older-posts__item__background {
-        @include articles.article-box("../src/images/old_post#{$i}.jpg");   
-        @extend .common-articles;
-        transition: 0.5s;
-    }
-}
-
 #load-more-btn {
     @extend .wide-button;
+    @extend .common-button;
     transition: 0.5s;
 }
 
 #load-more-btn:hover {
-    background-color: darkorange;
+    background-color: colors.$button-hover-color;
 }
 
+#subscription {
+    padding: 6rem 0 6rem 0;
 
+    .subscription__box {
+        display: flex;
+        gap: 2rem;
+        margin: 0 auto 0 auto;
+        max-width: fit-content;
+        align-items: center;
+        flex-direction: column;
+        align-content:center;
 
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            input {
+                display: block;
+            }
+        }
+    }
+}

@@ -6,10 +6,11 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Corben">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header id="header">
-            <!-- TODO: ... -->
+            <!-- TODO: Change heading logo into an image file! -->
             <h1 id="header__heading">Maido</h1>>
             <nav id="header__nabvar">
                 <a class="header__navbar__link" href="">page 1</a>
@@ -26,6 +27,7 @@
             <section id="pinned">
                 <article class="pinned__item">
                     <div class="pinned__item__background" role="img"></div>
+                    <div class="pinned__item__tag">Pinned</div>
                     <div class="heading-box">
                         <p>Placeholder text for you to modify!</p>
                         <h3>Relevant heading</h3>
@@ -33,6 +35,7 @@
                 </article>
                 <article class="pinned__item">
                     <div class="pinned__item__background" role="img"></div>
+                    <div class="pinned__item__tag">Pinned</div>
                     <div class="heading-box">
                         <p>Placeholder text for you to modify!</p>
                         <h3>Relevant heading</h3>
@@ -40,6 +43,7 @@
                     </article>
                 <article class="pinned__item">
                     <div class="pinned__item__background" role="img"></div>
+                    <div class="pinned__item__tag">Pinned</div>
                     <div class="heading-box">
                         <p>Placeholder text for you to modify!</p>
                         <h3>Relevant heading</h3>
@@ -47,6 +51,7 @@
                 </article>
                 <article class="pinned__item">
                     <div class="pinned__item__background" role="img"></div>
+                    <div class="pinned__item__tag">Pinned</div>
                     <div class="heading-box">
                         <p>Placeholder text for you to modify!</p>
                         <h3>Relevant heading</h3>
@@ -54,6 +59,7 @@
                 </article>
                 <article class="pinned__item">
                     <div class="pinned__item__background" role="img"></div>
+                    <div class="pinned__item__tag">Pinned</div>
                     <div class="heading-box">
                         <p>Placeholder text for you to modify!</p>
                         <h3>Relevant heading</h3>
@@ -67,21 +73,21 @@
                 <article class="second-section__item">
                     <div class="second-section__item__background" role="img"></div>
                     <div class="heading-box">
-                        <h3>Relevant heading</h3>
+                        <h3>Relevant heading <i class="fa fa-arrow-right"></i></h3>
                         <p>Placeholder text for you to modify!</p>
                     </div>
                 </article>
                 <article class="second-section__item">
                     <div class="second-section__item__background" role="img"></div>
                     <div class="heading-box">
-                        <h3>Relevant heading</h3>
+                        <h3>Relevant heading <i class="fa fa-arrow-right"></i></h3>
                         <p>Placeholder text for you to modify!</p>
                     </div>
                 </article>
                 <article class="second-section__item">
                     <div class="second-section__item__background" role="img"></div>
                     <div class="heading-box">
-                        <h3>Relevant heading</h3>
+                        <h3>Relevant heading <i class="fa fa-arrow-right"></i></h3>
                         <p>Placeholder text for you to modify!</p>
                     </div>
                 </article>
@@ -132,9 +138,14 @@
                 - The input width grows when active -->
         <!--  TODO: A motto etc fixed on the left side of viewport rotate -90deg -->
             <section id="subscription">
-                <form action="mailto:juho.simojoki@integrify.io" method="post">
-                    <input type="email" name="email" id="email">
-                </form>
+                <article class="subscription__box">
+                    <h2>Subscribe to see what we're thinking</h2>
+                    <p>Start your day with Maido</p>
+                    <form action="mailto:juho.simojoki@integrify.io" method="post" aria-description="Write your name to the input and subscribe to the newsletter from Maido">
+                        <input type="email" name="email" id="email">
+                        <button type="submit" aria-description="Subscribe to the newsletter">SUBSCRIBE</button>
+                    </form>
+                </article>
             </section>
         </main>
         <footer>
