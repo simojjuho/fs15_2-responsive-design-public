@@ -88,11 +88,11 @@ as I wanted to automate this as much as possible.  */
   color: #23283b;
 }
 
-.article-raise, #pinned .pinned__item:hover {
+.article-raise {
   transform: translate(0, -5px);
 }
 
-.article-zoom, #second-section .second-section__item:hover .second-section__item__background, #older-posts .older-posts__item:hover .older-posts__item__background {
+.article-zoom {
   transform: scale(1.2);
 }
 
@@ -153,6 +153,7 @@ as I wanted to automate this as much as possible.  */
   position: fixed;
   margin: auto, 0;
   transform: rotate(-90deg) translate(-160%, -5em);
+  visibility: visible;
 }
 
 #pinned .pinned__item:nth-child(1) {
@@ -233,9 +234,6 @@ as I wanted to automate this as much as possible.  */
   background-image: url("../src/images/dustenbrook3.jpg"), linear-gradient(#f800c2, #f800f3);
   transition: 0.5s;
 }
-#second-section .second-section__item:hover .heading-box span {
-  visibility: visible;
-}
 #second-section .second-section__item .heading-box h3 span {
   visibility: hidden;
 }
@@ -248,9 +246,6 @@ as I wanted to automate this as much as possible.  */
 }
 #older-posts .older-posts__item {
   flex: 2 1 30vw;
-}
-#older-posts .older-posts__item:hover .heading-box span {
-  visibility: visible;
 }
 #older-posts .older-posts__item:nth-child(1) {
   grid-area: item1;
@@ -302,6 +297,15 @@ as I wanted to automate this as much as possible.  */
     grid-template-columns: 1.2fr 1fr 1fr;
     grid-template-areas: "item1 item2 item3" "item1 item4 item5";
   }
+  #pinned .pinned__item:hover {
+    transform: translate(0, -5px);
+  }
+  #second-section .second-section__item:hover .second-section__item__background {
+    transform: scale(1.2);
+  }
+  #second-section .second-section__item:hover .heading-box span {
+    visibility: visible;
+  }
   #older-posts {
     gap: 0.8em;
     max-width: 70%;
@@ -309,8 +313,17 @@ as I wanted to automate this as much as possible.  */
     grid-template-columns: 18%;
     grid-template-areas: "item1 item1 item1 item2 item2 item2" "item3 item3 item4 item4 item5 item5" "button button button button button button";
   }
+  #older-posts .older-posts__item:hover .older-posts__item__background {
+    transform: scale(1.2);
+  }
+  #older-posts .older-posts__item:hover .heading-box span {
+    visibility: visible;
+  }
 }
 @media screen and (max-width: 799px) {
+  #motto {
+    visibility: hidden;
+  }
   #pinned {
     gap: 0.5em;
     max-width: 90%;
@@ -322,8 +335,8 @@ as I wanted to automate this as much as possible.  */
     gap: 0.5em;
     max-width: 90%;
     grid-template-rows: 7em 7em 7em 7em 7em;
-    grid-template-columns: 80%;
-    grid-template-areas: "item1" "item2" "item3" "item4" "item5";
+    grid-template-columns: 90%;
+    grid-template-areas: "item1" "item2" "item3" "item4" "item5" "button";
   }
   p {
     display: none;

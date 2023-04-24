@@ -17,6 +17,7 @@
     @extend .main-text;
     margin: auto, 0;
     transform: rotate(-90deg) translate(-160%, -5em); 
+    visibility: visible;
 }
 
 #pinned {
@@ -37,9 +38,6 @@
             }
         }
 
-        &:hover {
-            @extend .article-raise;
-        }
 
         .pinned__item__tag {
             position: absolute;
@@ -95,17 +93,6 @@
             }
         }
 
-        &:hover { 
-            .second-section__item__background {
-                @extend .article-zoom;
-            }
-            .heading-box {
-                span {
-                    visibility: visible;
-                }
-            }
-        }
-
         .heading-box {
             .tag {
                 @extend .tags-common;
@@ -139,17 +126,7 @@
         flex: 2 1 30vw;
         @extend .common-article;
 
-        &:hover { 
-            .older-posts__item__background {
-                @extend .article-zoom;
-            }
-            .heading-box {
-                span {
-                    visibility: visible;
-                }
-            }
-        }
-
+    
         @for $i from 1 through 5 {
             &:nth-child(#{$i}) {
                 @include articles.grid-area(item+#{$i})
@@ -194,6 +171,25 @@
         grid-template-areas: 
             "item1 item2 item3"
             "item1 item4 item5";
+
+            .pinned__item:hover {
+                transform: translate(0, -5px);
+            }
+    }
+
+    #second-section {
+        .second-section__item {
+            &:hover {
+                .second-section__item__background {
+                    transform: scale(1.2);
+                }
+                .heading-box {
+                    span {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
     }
 
     #older-posts {
@@ -205,10 +201,28 @@
             "item1 item1 item1 item2 item2 item2"
             "item3 item3 item4 item4 item5 item5"
             "button button button button button button";
+
+            .older-posts__item {
+                &:hover { 
+                    .older-posts__item__background {
+                        transform: scale(1.2);
+                    }
+                    .heading-box {
+                        span {
+                            visibility: visible;
+                        }
+                    }
+                }
+        
+            }
     }
 }
 
 @media screen and (max-width: 799px) {
+    #motto {
+        visibility: hidden;
+    }
+
     #pinned {
         gap: 0.5em;
         max-width: 90%;
@@ -225,13 +239,14 @@
         gap: 0.5em;
         max-width: 90%;
         grid-template-rows: 7em 7em 7em 7em 7em;
-        grid-template-columns: 80%;
+        grid-template-columns: 90%;
         grid-template-areas: 
             "item1"
             "item2"
             "item3"
             "item4"
-            "item5";
+            "item5"
+            "button";
     }
 
     p {
