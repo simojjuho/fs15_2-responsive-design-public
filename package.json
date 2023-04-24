@@ -2,7 +2,7 @@
   "name": "fs15_2-responsive-design",
   "version": "1.0.0",
   "description": "SCSS assignment at Integrify",
-  "main": "index.js",
+  "main": "./src/index.html",
   "scripts": {
     "sass": "sass src/styles/styles.scss:src/styles.css",
     "sass:watch": "sass --watch src/styles/styles.scss:src/styles.css"
